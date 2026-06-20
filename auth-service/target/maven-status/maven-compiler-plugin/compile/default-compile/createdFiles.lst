@@ -1,0 +1,17 @@
+com/localkart/platform/auth/AuthServiceApplication.class
+com/localkart/platform/auth/client/UserClient.class
+com/localkart/platform/auth/web/dto/LoginRequest.class
+com/localkart/platform/auth/web/dto/AuthResponse.class
+com/localkart/platform/auth/web/dto/LoginRequest$LoginRequestBuilder.class
+com/localkart/platform/auth/domain/UserCredentials.class
+com/localkart/platform/auth/web/dto/UserDto$UserDtoBuilder.class
+com/localkart/platform/auth/service/AuthService.class
+com/localkart/platform/auth/domain/UserCredentials$UserCredentialsBuilder.class
+com/localkart/platform/auth/web/dto/AuthResponse$AuthResponseBuilder.class
+com/localkart/platform/auth/web/dto/RegisterRequest$RegisterRequestBuilder.class
+com/localkart/platform/auth/config/SecurityConfig.class
+com/localkart/platform/auth/service/impl/AuthServiceImpl.class
+com/localkart/platform/auth/web/dto/UserDto.class
+com/localkart/platform/auth/web/rest/AuthController.class
+com/localkart/platform/auth/repository/UserCredentialsRepository.class
+com/localkart/platform/auth/web/dto/RegisterRequest.class

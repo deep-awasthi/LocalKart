@@ -1,0 +1,36 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: product-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/localkart_product
+    username: postgres
+    password: postgrespassword
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/localkart_product
+    redis:
+      host: localhost
+      port: 6379
+  graphql:
+    graphiql:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      show-details: always

@@ -1,0 +1,25 @@
+### Auth Service Direct Tests
+
+POST http://localhost:8081/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "email": "jane@example.com",
+  "password": "password123",
+  "name": "Jane Doe",
+  "phone": "9876543210"
+}
+
+###
+
+POST http://localhost:8081/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "jane@example.com",
+  "password": "password123"
+}
+
+###
+
+GET http://localhost:8081/actuator/health

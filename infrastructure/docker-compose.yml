@@ -1,0 +1,114 @@
+services:
+  # Relational Database: PostgreSQL
+  postgres:
+    image: postgres:16-alpine
+    container_name: localkart-postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: postgres
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+      - ./postgres-init:/docker-entrypoint-initdb.d:ro
+    networks:
+      - localkart-net
+
+  # NoSQL Document Store: MongoDB (Reviews & Auditing)
+  mongodb:
+    image: mongo:7.0
+    container_name: localkart-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/mongo:/data/db
+    networks:
+      - localkart-net
+
+  # Cache: Redis
+  redis:
+    image: redis:7.2-alpine
+    container_name: localkart-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - ./data/redis:/data
+    networks:
+      - localkart-net
+
+  # Kafka dependency: Zookeeper
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.6.1
+    container_name: localkart-zookeeper
+    restart: always
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+      ZOOKEEPER_MAX_CLIENT_CONNECTIONS: 60
+    volumes:
+      - ./data/zookeeper/data:/data
+      - ./data/zookeeper/datalog:/datalog
+    networks:
+      - localkart-net
+
+  # Event Streaming: Kafka
+  kafka:
+    image: confluentinc/cp-kafka:7.6.1
+    container_name: localkart-kafka
+    restart: always
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka:29092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+    networks:
+      - localkart-net
+
+  # Monitoring: Prometheus
+  prometheus:
+    image: prom/prometheus:v2.52.0
+    container_name: localkart-prometheus
+    restart: always
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus:/etc/prometheus:ro
+      - ./data/prometheus:/prometheus
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - localkart-net
+
+  # Visualization Dashboard: Grafana
+  grafana:
+    image: grafana/grafana:11.0.0
+    container_name: localkart-grafana
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - ./data/grafana:/var/lib/grafana
+    networks:
+      - localkart-net
+
+networks:
+  localkart-net:
+    name: localkart-network
+    driver: bridge

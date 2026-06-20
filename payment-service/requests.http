@@ -1,0 +1,8 @@
+### Payment Service Direct Tests
+
+GET http://localhost:8086/api/v1/payments
+X-Auth-User: admin@example.com
+
+###
+
+GET http://localhost:8086/actuator/health

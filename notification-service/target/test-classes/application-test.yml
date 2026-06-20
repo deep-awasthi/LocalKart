@@ -1,0 +1,9 @@
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.kafka.KafkaAutoConfiguration
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://dummy

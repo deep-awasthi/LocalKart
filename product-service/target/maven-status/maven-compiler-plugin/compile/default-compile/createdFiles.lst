@@ -1,0 +1,15 @@
+com/localkart/platform/product/repository/ReviewRepository.class
+com/localkart/platform/product/domain/Review$ReviewBuilder.class
+com/localkart/platform/product/domain/Product.class
+com/localkart/platform/product/web/graphql/ProductGraphQLController$CreateReviewInput.class
+com/localkart/platform/product/config/HybridCache.class
+com/localkart/platform/product/config/CacheConfig$1.class
+com/localkart/platform/product/config/CacheConfig.class
+com/localkart/platform/product/repository/ProductRepository.class
+com/localkart/platform/product/domain/Product$ProductBuilder.class
+com/localkart/platform/product/service/impl/ProductServiceImpl.class
+com/localkart/platform/product/web/graphql/ProductGraphQLController.class
+com/localkart/platform/product/service/ProductService.class
+com/localkart/platform/product/ProductServiceApplication.class
+com/localkart/platform/product/web/graphql/ProductGraphQLController$CreateProductInput.class
+com/localkart/platform/product/domain/Review.class

@@ -1,0 +1,9 @@
+/Users/deepawasthi/Developer/LocalKart/inventory-service/src/main/java/com/localkart/platform/inventory/InventoryServiceApplication.java
+/Users/deepawasthi/Developer/LocalKart/inventory-service/src/main/java/com/localkart/platform/inventory/config/SecurityConfig.java
+/Users/deepawasthi/Developer/LocalKart/inventory-service/src/main/java/com/localkart/platform/inventory/domain/Inventory.java
+/Users/deepawasthi/Developer/LocalKart/inventory-service/src/main/java/com/localkart/platform/inventory/repository/InventoryRepository.java
+/Users/deepawasthi/Developer/LocalKart/inventory-service/src/main/java/com/localkart/platform/inventory/service/InventoryService.java
+/Users/deepawasthi/Developer/LocalKart/inventory-service/src/main/java/com/localkart/platform/inventory/service/impl/InventoryServiceImpl.java
+/Users/deepawasthi/Developer/LocalKart/inventory-service/src/main/java/com/localkart/platform/inventory/web/dto/InventoryResponse.java
+/Users/deepawasthi/Developer/LocalKart/inventory-service/src/main/java/com/localkart/platform/inventory/web/dto/ReservationRequest.java
+/Users/deepawasthi/Developer/LocalKart/inventory-service/src/main/java/com/localkart/platform/inventory/web/rest/InventoryController.java

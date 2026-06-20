@@ -1,0 +1,40 @@
+### Product Service Direct Tests
+
+POST http://localhost:8083/api/v1/products
+Content-Type: application/json
+X-Auth-User: admin@example.com
+X-Auth-Roles: ROLE_ADMIN
+
+{
+  "sku": "SKU-IPHONE15",
+  "name": "iPhone 15",
+  "price": 899.99,
+  "category": "Electronics"
+}
+
+###
+
+POST http://localhost:8083/api/v1/products/1/reviews
+Content-Type: application/json
+X-Auth-User: user@example.com
+X-Auth-Roles: ROLE_USER
+
+{
+  "productId": 1,
+  "rating": 5,
+  "comment": "Superb battery life!",
+  "username": "user@example.com"
+}
+
+###
+
+POST http://localhost:8083/graphql
+Content-Type: application/json
+
+{
+  "query": "query { getProducts { sku name price reviews { comment rating } } }"
+}
+
+###
+
+GET http://localhost:8083/actuator/health

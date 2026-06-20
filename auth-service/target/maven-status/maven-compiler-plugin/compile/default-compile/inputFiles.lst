@@ -1,0 +1,12 @@
+/Users/deepawasthi/Developer/LocalKart/auth-service/src/main/java/com/localkart/platform/auth/AuthServiceApplication.java
+/Users/deepawasthi/Developer/LocalKart/auth-service/src/main/java/com/localkart/platform/auth/client/UserClient.java
+/Users/deepawasthi/Developer/LocalKart/auth-service/src/main/java/com/localkart/platform/auth/config/SecurityConfig.java
+/Users/deepawasthi/Developer/LocalKart/auth-service/src/main/java/com/localkart/platform/auth/domain/UserCredentials.java
+/Users/deepawasthi/Developer/LocalKart/auth-service/src/main/java/com/localkart/platform/auth/repository/UserCredentialsRepository.java
+/Users/deepawasthi/Developer/LocalKart/auth-service/src/main/java/com/localkart/platform/auth/service/AuthService.java
+/Users/deepawasthi/Developer/LocalKart/auth-service/src/main/java/com/localkart/platform/auth/service/impl/AuthServiceImpl.java
+/Users/deepawasthi/Developer/LocalKart/auth-service/src/main/java/com/localkart/platform/auth/web/dto/AuthResponse.java
+/Users/deepawasthi/Developer/LocalKart/auth-service/src/main/java/com/localkart/platform/auth/web/dto/LoginRequest.java
+/Users/deepawasthi/Developer/LocalKart/auth-service/src/main/java/com/localkart/platform/auth/web/dto/RegisterRequest.java
+/Users/deepawasthi/Developer/LocalKart/auth-service/src/main/java/com/localkart/platform/auth/web/dto/UserDto.java
+/Users/deepawasthi/Developer/LocalKart/auth-service/src/main/java/com/localkart/platform/auth/web/rest/AuthController.java

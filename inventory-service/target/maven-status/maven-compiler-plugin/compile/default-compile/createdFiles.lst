@@ -1,0 +1,12 @@
+com/localkart/platform/inventory/config/SecurityConfig.class
+com/localkart/platform/inventory/repository/InventoryRepository.class
+com/localkart/platform/inventory/domain/Inventory$InventoryBuilder.class
+com/localkart/platform/inventory/web/dto/InventoryResponse$InventoryResponseBuilder.class
+com/localkart/platform/inventory/web/dto/ReservationRequest.class
+com/localkart/platform/inventory/web/dto/InventoryResponse.class
+com/localkart/platform/inventory/web/dto/ReservationRequest$ReservationRequestBuilder.class
+com/localkart/platform/inventory/InventoryServiceApplication.class
+com/localkart/platform/inventory/domain/Inventory.class
+com/localkart/platform/inventory/web/rest/InventoryController.class
+com/localkart/platform/inventory/service/InventoryService.class
+com/localkart/platform/inventory/service/impl/InventoryServiceImpl.class

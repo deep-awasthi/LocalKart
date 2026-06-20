@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalKart API Gateway Dashboard</title>
+    
+    <!-- Google Analytics (gtag.js) - Completely Free Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKART2026"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LKART2026');
+    </script>
+
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #151d30;
+            --accent: #3b82f6;
+            --accent-hover: #60a5fa;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --status-green: #10b981;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .service-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--status-green);
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--status-green);
+            border-radius: 50%;
+            margin-right: 0.4rem;
+            box-shadow: 0 0 8px var(--status-green);
+        }
+
+        .service-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin: 0 0 1.5rem 0;
+            height: 2.8rem;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            flex: 1;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--text-main);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: auto;
+            padding-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LocalKart Control Dashboard</h1>
+            <p class="subtitle">API Gateway Central Ingress Router Status Panel</p>
+        </header>
+
+        <div class="services-grid">
+            <!-- Auth Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="service-name">Auth Service</h3>
+                    <span class="status-badge"><span class="status-dot"></span>Active</span>
+                </div>
+                <p class="service-desc">User account registration, credentials hashing encryption, and JWT token issuance.</p>
+                <div class="card-footer">
+                    <a href="http://localhost:8081/actuator/health" target="_blank" class="btn btn-outline">Health Check</a>
+                </div>
+            </div>
+
+            <!-- User Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="service-name">User Service</h3>
+                    <span class="status-badge"><span class="status-dot"></span>Active</span>
+                </div>
+                <p class="service-desc">Manages customer profiles, shipping details, and access roles.</p>
+                <div class="card-footer">
+                    <a href="http://localhost:8082/actuator/health" target="_blank" class="btn btn-outline">Health Check</a>
+                </div>
+            </div>
+
+            <!-- Product Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="service-name">Product Catalog</h3>
+                    <span class="status-badge"><span class="status-dot"></span>Active</span>
+                </div>
+                <p class="service-desc">GraphQL product querying, catalog inventory description, and Caffeine + Redis caching.</p>
+                <div class="card-footer">
+                    <a href="http://localhost:8083/actuator/health" target="_blank" class="btn btn-outline">Health Check</a>
+                </div>
+            </div>
+
+            <!-- Inventory Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="service-name">Inventory Service</h3>
+                    <span class="status-badge"><span class="status-dot"></span>Active</span>
+                </div>
+                <p class="service-desc">Maintains catalog SKU quantities, reserving/releasing stock during transactions.</p>
+                <div class="card-footer">
+                    <a href="http://localhost:8084/actuator/health" target="_blank" class="btn btn-outline">Health Check</a>
+                </div>
+            </div>
+
+            <!-- Order Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="service-name">Order Service</h3>
+                    <span class="status-badge"><span class="status-dot"></span>Active</span>
+                </div>
+                <p class="service-desc">Saga Orchestrator managing order generation, transaction locks, and Kafka updates.</p>
+                <div class="card-footer">
+                    <a href="http://localhost:8085/actuator/health" target="_blank" class="btn btn-outline">Health Check</a>
+                </div>
+            </div>
+
+            <!-- Payment Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="service-name">Payment Gateway</h3>
+                    <span class="status-badge"><span class="status-dot"></span>Active</span>
+                </div>
+                <p class="service-desc">Simulates credit-card transactions, logging payment logs and publishing confirmations.</p>
+                <div class="card-footer">
+                    <a href="http://localhost:8086/actuator/health" target="_blank" class="btn btn-outline">Health Check</a>
+                </div>
+            </div>
+
+            <!-- Delivery Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="service-name">Delivery Service</h3>
+                    <span class="status-badge"><span class="status-dot"></span>Active</span>
+                </div>
+                <p class="service-desc">Tracks order shipments, generates unique courier tracking codes, and resolves shipping details.</p>
+                <div class="card-footer">
+                    <a href="http://localhost:8088/actuator/health" target="_blank" class="btn btn-outline">Health Check</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            LocalKart Commerce Platform Engine • Free Open-Source Architecture Manual
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+### User Service Direct Tests
+
+GET http://localhost:8082/api/v1/users/me
+X-Auth-User: jane@example.com
+X-Auth-Roles: ROLE_USER
+
+###
+
+PUT http://localhost:8082/api/v1/users/me/address?address=Brooklyn,+NY
+X-Auth-User: jane@example.com
+X-Auth-Roles: ROLE_USER
+
+###
+
+GET http://localhost:8082/actuator/health

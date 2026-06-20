@@ -1,0 +1,42 @@
+### Inventory Service Direct Tests
+
+POST http://localhost:8084/api/v1/inventory
+Content-Type: application/json
+X-Auth-User: admin@example.com
+
+{
+  "productSku": "SKU-IPHONE15",
+  "quantity": 100,
+  "reservedQuantity": 0
+}
+
+###
+
+GET http://localhost:8084/api/v1/inventory/SKU-IPHONE15
+X-Auth-User: user@example.com
+
+###
+
+POST http://localhost:8084/api/v1/inventory/reserve
+Content-Type: application/json
+X-Auth-User: user@example.com
+
+{
+  "productSku": "SKU-IPHONE15",
+  "quantity": 2
+}
+
+###
+
+POST http://localhost:8084/api/v1/inventory/release
+Content-Type: application/json
+X-Auth-User: user@example.com
+
+{
+  "productSku": "SKU-IPHONE15",
+  "quantity": 2
+}
+
+###
+
+GET http://localhost:8084/actuator/health

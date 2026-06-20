@@ -1,0 +1,10 @@
+com/localkart/platform/user/UserServiceApplication.class
+com/localkart/platform/user/domain/UserProfile.class
+com/localkart/platform/user/web/rest/UserController.class
+com/localkart/platform/user/service/impl/UserProfileServiceImpl.class
+com/localkart/platform/user/config/SecurityConfig.class
+com/localkart/platform/user/domain/UserProfile$UserProfileBuilder.class
+com/localkart/platform/user/web/dto/UserResponse.class
+com/localkart/platform/user/service/UserProfileService.class
+com/localkart/platform/user/repository/UserProfileRepository.class
+com/localkart/platform/user/web/dto/UserResponse$UserResponseBuilder.class

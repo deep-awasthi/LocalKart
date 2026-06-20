@@ -1,0 +1,4 @@
+com/localkart/platform/order/OrderServiceApplicationTests.class
+com/localkart/platform/order/service/OrderServiceTests.class
+com/localkart/platform/order/CheckoutSagaIntegrationTests.class
+com/localkart/platform/order/web/rest/OrderControllerTests.class

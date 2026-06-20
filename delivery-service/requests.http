@@ -1,0 +1,76 @@
+### 1. Register a user (to generate credentials)
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "email": "courier@localkart.com",
+  "password": "courierpassword",
+  "name": "Delivery Agent"
+}
+
+###
+
+### 2. Log in to get the JWT Token
+# @name login
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "courier@localkart.com",
+  "password": "courierpassword"
+}
+
+###
+
+@token = {{login.response.body.data.token}}
+
+### 3. Get all delivery logs (Authenticated)
+GET http://localhost:8080/api/v1/deliveries
+X-Auth-User: courier@localkart.com
+X-Auth-Roles: ROLE_ADMIN
+Authorization: Bearer {{token}}
+
+###
+
+### 4. Create a delivery manually (Admin/System only)
+POST http://localhost:8080/api/v1/deliveries
+Content-Type: application/json
+X-Auth-User: courier@localkart.com
+X-Auth-Roles: ROLE_ADMIN
+Authorization: Bearer {{token}}
+
+{
+  "orderNumber": "ORD-DELIV-999",
+  "username": "customer@localkart.com",
+  "courier": "LocalKart Express",
+  "deliveryAddress": "123 Main St, Metro City, Country"
+}
+
+###
+
+### 5. Fetch a specific delivery (Authenticated)
+GET http://localhost:8080/api/v1/deliveries/1
+X-Auth-User: courier@localkart.com
+X-Auth-Roles: ROLE_ADMIN
+Authorization: Bearer {{token}}
+
+###
+
+### 6. Fetch a delivery by order number
+GET http://localhost:8080/api/v1/deliveries/order/ORD-DELIV-999
+X-Auth-User: courier@localkart.com
+X-Auth-Roles: ROLE_ADMIN
+Authorization: Bearer {{token}}
+
+###
+
+### 7. Update delivery tracking status (e.g. SHIPPED)
+PUT http://localhost:8080/api/v1/deliveries/1/status
+Content-Type: application/json
+X-Auth-User: courier@localkart.com
+X-Auth-Roles: ROLE_ADMIN
+Authorization: Bearer {{token}}
+
+{
+  "status": "SHIPPED"
+}

@@ -1,0 +1,10 @@
+/Users/deepawasthi/Developer/LocalKart/product-service/src/main/java/com/localkart/platform/product/ProductServiceApplication.java
+/Users/deepawasthi/Developer/LocalKart/product-service/src/main/java/com/localkart/platform/product/config/CacheConfig.java
+/Users/deepawasthi/Developer/LocalKart/product-service/src/main/java/com/localkart/platform/product/config/HybridCache.java
+/Users/deepawasthi/Developer/LocalKart/product-service/src/main/java/com/localkart/platform/product/domain/Product.java
+/Users/deepawasthi/Developer/LocalKart/product-service/src/main/java/com/localkart/platform/product/domain/Review.java
+/Users/deepawasthi/Developer/LocalKart/product-service/src/main/java/com/localkart/platform/product/repository/ProductRepository.java
+/Users/deepawasthi/Developer/LocalKart/product-service/src/main/java/com/localkart/platform/product/repository/ReviewRepository.java
+/Users/deepawasthi/Developer/LocalKart/product-service/src/main/java/com/localkart/platform/product/service/ProductService.java
+/Users/deepawasthi/Developer/LocalKart/product-service/src/main/java/com/localkart/platform/product/service/impl/ProductServiceImpl.java
+/Users/deepawasthi/Developer/LocalKart/product-service/src/main/java/com/localkart/platform/product/web/graphql/ProductGraphQLController.java

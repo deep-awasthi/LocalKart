@@ -1,0 +1,30 @@
+### ============================================================
+###   Notification Service — Event-Driven (No REST Endpoints)
+### ============================================================
+### This service is purely event-driven and does NOT expose
+### REST API endpoints. It consumes Kafka events and processes
+### notifications (email/SMS simulation via logging).
+###
+### Kafka Topics Consumed:
+###   - order-events  (consumer group: notification-group)
+###   - payment-events (consumer group: notification-group)
+###
+### To test, create an order through the Order Service which
+### triggers the full event chain:
+###   Order Created → Payment Processed → Notification Sent
+### ============================================================
+
+### 1. Health Check
+GET http://localhost:8087/actuator/health
+
+###
+
+### 2. Service Info
+GET http://localhost:8087/actuator/info
+
+###
+
+### 3. Prometheus Metrics (for monitoring)
+GET http://localhost:8087/actuator/prometheus
+
+###

@@ -1,0 +1,4 @@
+com/localkart/platform/gateway/filter/GatewayRateLimitingFilterTests.class
+com/localkart/platform/gateway/filter/GatewayAccessLogFilterTests.class
+com/localkart/platform/gateway/filter/GatewayCorrelationFilterTests.class
+com/localkart/platform/gateway/ApiGatewayApplicationTests.class

@@ -1,0 +1,3 @@
+com/localkart/platform/product/service/ProductServiceTests.class
+com/localkart/platform/product/web/graphql/ProductGraphQLControllerTests.class
+com/localkart/platform/product/ProductServiceApplicationTests.class

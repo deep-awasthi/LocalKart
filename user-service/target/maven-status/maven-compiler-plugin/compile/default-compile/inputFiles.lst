@@ -1,0 +1,8 @@
+/Users/deepawasthi/Developer/LocalKart/user-service/src/main/java/com/localkart/platform/user/UserServiceApplication.java
+/Users/deepawasthi/Developer/LocalKart/user-service/src/main/java/com/localkart/platform/user/config/SecurityConfig.java
+/Users/deepawasthi/Developer/LocalKart/user-service/src/main/java/com/localkart/platform/user/domain/UserProfile.java
+/Users/deepawasthi/Developer/LocalKart/user-service/src/main/java/com/localkart/platform/user/repository/UserProfileRepository.java
+/Users/deepawasthi/Developer/LocalKart/user-service/src/main/java/com/localkart/platform/user/service/UserProfileService.java
+/Users/deepawasthi/Developer/LocalKart/user-service/src/main/java/com/localkart/platform/user/service/impl/UserProfileServiceImpl.java
+/Users/deepawasthi/Developer/LocalKart/user-service/src/main/java/com/localkart/platform/user/web/dto/UserResponse.java
+/Users/deepawasthi/Developer/LocalKart/user-service/src/main/java/com/localkart/platform/user/web/rest/UserController.java

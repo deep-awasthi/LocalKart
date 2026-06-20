@@ -1,0 +1,14 @@
+### API Gateway Routing Test File
+
+# @name GatewayHome
+GET http://localhost:8080/
+
+###
+
+# @name GatewayHealth
+GET http://localhost:8080/actuator/health
+
+###
+
+# @name GatewayPrometheusMetrics
+GET http://localhost:8080/actuator/prometheus

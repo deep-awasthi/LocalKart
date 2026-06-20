@@ -1,0 +1,148 @@
+### LocalKart Platform Endpoints Test File
+# This file contains requests designed for testing the endpoints using VSCode/IntelliJ HTTP Client.
+# All routes are exposed via the API Gateway (http://localhost:8080).
+
+@gateway = http://localhost:8080
+@token = YOUR_JWT_TOKEN_HERE
+
+### 1. AUTH SERVICE
+
+# @name Register
+POST {{gateway}}/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "email": "customer@example.com",
+  "password": "password123",
+  "name": "Jane Customer",
+  "phone": "1234567890"
+}
+
+###
+
+# @name Login
+POST {{gateway}}/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "customer@example.com",
+  "password": "password123"
+}
+
+###
+
+### 2. USER PROFILE SERVICE
+# Requires the JWT token from the Login response
+
+# @name GetMyProfile
+GET {{gateway}}/api/v1/users/me
+Authorization: Bearer {{token}}
+
+###
+
+# @name UpdateMyAddress
+PUT {{gateway}}/api/v1/users/me/address?address=123+Main+Street,+New+York,+NY
+Authorization: Bearer {{token}}
+
+###
+
+### 3. PRODUCT SERVICE
+
+# @name CreateProduct
+POST {{gateway}}/api/v1/products
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "sku": "SKU-IPHONE15",
+  "name": "iPhone 15 Pro",
+  "price": 999.99,
+  "category": "Electronics"
+}
+
+###
+
+# @name CreateReview
+POST {{gateway}}/api/v1/products/1/reviews
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "productId": 1,
+  "rating": 5,
+  "comment": "Incredible camera and display quality!",
+  "username": "customer@example.com"
+}
+
+###
+
+# @name GraphQLGetProducts
+POST {{gateway}}/graphql
+Content-Type: application/json
+
+{
+  "query": "query { getProducts { id sku name price category reviews { rating comment } } }"
+}
+
+###
+
+### 4. INVENTORY SERVICE
+
+# @name AddInventory
+POST {{gateway}}/api/v1/inventory
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "productSku": "SKU-IPHONE15",
+  "quantity": 50,
+  "reservedQuantity": 0
+}
+
+###
+
+# @name GetStockLevel
+GET {{gateway}}/api/v1/inventory/SKU-IPHONE15
+Authorization: Bearer {{token}}
+
+###
+
+### 5. ORDER SERVICE
+
+# @name CreateOrder
+POST {{gateway}}/api/v1/orders
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "items": [
+    {
+      "productSku": "SKU-IPHONE15",
+      "quantity": 2,
+      "price": 999.99
+    }
+  ]
+}
+
+###
+
+# @name GetUserOrders
+GET {{gateway}}/api/v1/orders
+Authorization: Bearer {{token}}
+
+###
+
+### 6. PAYMENT SERVICE
+
+# @name GetTransactionHistory
+GET {{gateway}}/api/v1/payments
+Authorization: Bearer {{token}}
+
+###
+
+### 7. MONITORING (ACTUATOR)
+
+# @name GatewayHealth
+GET {{gateway}}/actuator/health
+
+###

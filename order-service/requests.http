@@ -1,0 +1,26 @@
+### Order Service Direct Tests
+
+POST http://localhost:8085/api/v1/orders
+Content-Type: application/json
+X-Auth-User: user@example.com
+X-Auth-Roles: ROLE_USER
+
+{
+  "items": [
+    {
+      "productSku": "SKU-IPHONE15",
+      "quantity": 1,
+      "price": 899.99
+    }
+  ]
+}
+
+###
+
+GET http://localhost:8085/api/v1/orders
+X-Auth-User: user@example.com
+X-Auth-Roles: ROLE_USER
+
+###
+
+GET http://localhost:8085/actuator/health
